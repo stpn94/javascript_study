@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+
+	//일정 시간 간격으로 값 증감시키기
+	var addNum = 0;
+	var subNum = 1000;
+	//setInterval(function () {코드;}, 시간간격);
+	//3초(3000) 간격으로 반복 실행합니다. addNum의 값이 1씩 증가합니다.
+	//clearInterval(참조변수); setInterval 취소
+	var auto_1 = setInterval(function () {addNum++;console.log("addNum: " + addNum);}, 3000);
+
+	var auto_2 = setInterval(function () {subNum--;console.log("subNum: " + subNum);}, 3000);
+	
+	//일정 시간 간격으로 한번만 값 증감시키기
+	//setTimeout(function( ) {코드;}, 시간간격);은 일정 시간이 지나면 코드를 실행하고 종료
+	//clearTimeout 은 setTimeout을 제거
+	var addNum2 = 0;
+	var auto=setTimeout(function( ) {addNum2++;console.log("addNum2: " +addNum2);}, 5000);
+	
+</script>
+</head>
+<body>
+	<h1>일정 시간 간격으로 값 증감시키기</h1>
+	<p> 콘솔 패널을 열어 확인하세요.</p>
+	<button onclick="clearInterval(auto_1)">증가 정지</button>    
+	<button onclick="clearInterval(auto_2)">감소 정지</button>    
+</body>
+</html>
