@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체생성자함수</title>
+<script>
+	//함수명은 대문자로 시작하기(약속)
+	function CheckWeight(name, height, weight) {
+		//생성된 객체에 매게변수 이름,키,몸무게 등의 속성을 등록합니다.
+		this.userName = name; 
+		this.userHeight = height;
+		this.userWeight = weight;
+		
+		//선언만 해두고
+		this.minWeight;
+		this.maxWeight;
+
+		//생성된 객체에 각 속성값을 출력하는 함수를 등록합니다.
+		//이름 키 몸무게를 str변수에 넣어서 str을 리턴한다.
+		this.getInfo = function() {
+			var str = ""
+				str += "이름: " + this.userName + ", ";
+				str += "키: " + this.userHeight + ", ";
+				str += "몸무게: " + this.userWeight + "<br>";
+				return  str;
+		}
+		//정상 몸무게, 표준 오차 몸무게를 구하여 몸무게가 정상인지 출력하는 함수를 등록합니다.
+		this.getResult = function( ) {
+			//오차범위 minWeight와 maxWeight를 초기화(구현?) 해준다.
+			//최소값은 현재 몸무게 -100 해서 0.9를 곱하고 -5를 한 수다.
+			this.minWeight = (this.userHeight - 100) * 0.9 - 5;
+			//최대값은 현재 몸무게 -100 해서 0.9를 곱하고 +5를 한 수다.
+			this.maxWeight = (this.userHeight - 100) * 0.9 + 5;
+
+			//만약 몸무게가 최소값보다 많거나 최대값보다 적으면 정상을 리턴한다.
+			if(this.userWeight >= this.minWeight && 
+			this.userWeight <= this.maxWeight) {
+				return "정상 몸무게입니다<br>";
+				//하지만 최소값보다 적으면 미달을 리턴한다
+			} else if(this.userWeight < this.minWeight) {
+				return "정상 몸무게보다 미달입니다<br>";
+				//그것도 아니면 초과을 리턴한다
+			} else {
+				return "정상 몸무게보다 초과입니다<br>";
+			}
+		}
+	}//CheckWeight함수 끝
+
+	var jang = new CheckWeight("장보리", 168, 62);
+	var park = new CheckWeight("박달재", 180, 88);
+	console.log(jang);
+	console.log(park);
+
+	document.write(jang.getInfo());
+	document.write(jang.getResult());
+	document.write(park.getInfo());
+	document.write(park.getResult());
+</script>
+</head>
+<body>
+
+</body>
+</html>

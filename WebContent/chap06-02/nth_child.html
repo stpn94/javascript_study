@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(function(){
+		//$("요소 선택:nth-child(숫자)")
+		//선택한 요소의 무리 중 지정한 (숫자)의 요소를 선택합니다.
+		$("#menu1 li:nth-child(1)")
+		.css({"background-color":"#ff0"});
+
+		//$("요소 선택:nth-child(숫자n)")
+		//선택한 요소의 무리 중 지정한 (배수)의 요소를 선택합니다.
+		$("#menu1 li:nth-child(2n)")
+		.css({"border":"2px dashed #f00"});
+
+		//$("요소 선택:nth-last-child(숫자)")
+		//요소의 무리 중 마지막에서 지정한 숫자의 요소를 선택합니다.
+		$("#menu2 li:nth-last-child(1)")
+		.css({"background-color":"#0ff"});
+	});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu1">
+		<li>내용1-1</li>
+		<li>내용1-2</li>
+		<li>내용1-3</li>
+		<li>내용1-4</li>
+	</ul>
+	<ul id="menu2">
+		<li>내용2-1</li>
+		<li>내용2-2</li>
+		<li>내용2-3</li>
+	</ul>
+</body>
+</html>

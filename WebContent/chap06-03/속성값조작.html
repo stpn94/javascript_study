@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 객체 조작 및 생성 </title>  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+		//attr() //removeAttr()
+	$(function( ){
+		
+		//$("요소 선택").attr("속성명");
+		//선택한 요소의 지정한 속성값을 가져옵니다.
+		
+		//$("요소 선택").attr("속성명","새 값");
+		//요소를 선택하여 지정한 속성값을 적용합니다.
+		
+		//$("요소 선택").attr("속성명1":"새 값1","속성명2":"새 값2","속성명3":"새 값3"...."속성명n":"새 값n");
+		//요소를 선택하여 지정한 여러 개의 속성값을 적용합니다.
+		
+		var srcVal = $("#sec_1 img").attr("src");
+		console.log(srcVal);
+
+		$("#sec_1 img")
+		.attr({
+			"width":200,
+			"src": srcVal.replace("1.jpg","2.jpg"),
+			"alt": "바위"
+		})
+		
+		//$("요소 선택").removeAttr("속성");
+		//선택한 요소에서 지정한 속성을 삭제합니다.
+		.removeAttr("border");
+	});
+</script>
+</head>
+<body>
+	<h1><strong>객체 조작 및 생성</strong></h1>
+	<section id="sec_1">
+		<h2>이미지 속성</h2>
+		<p><img src="images/math_img_1.jpg" alt="바위" border="2"></p>
+	</section>
+</body>
+</html>

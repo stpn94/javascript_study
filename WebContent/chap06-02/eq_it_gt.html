@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	$(function(){
+//$("요소선택:eq(index)") or $("요소선택".eq(index))
+//인덱스가 참조하는 요소만 선택
+		$("#menu li").eq(2)
+		.css({"background-color":"#ff0"});
+
+//$("요소선택:it(index)")
+//선택한 인덱스 보다 작은 요소 선택
+		$("#menu li:lt(2)")
+		.css({"background-color":"#0ff"});
+
+//$("요소선택:gt(index)")
+//선택한 인덱스 보다 큰 요소 선택
+		$("#menu li:gt(2)")
+		.css({"background-color":"#f0f"});
+	});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu">
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+		<li>내용5</li>
+	</ul>
+</body>
+</html>

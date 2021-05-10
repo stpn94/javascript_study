@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 선택자 </title>  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+	$(function(){
+		//배열[] 생성 객체{Key:value}
+		var obj = [
+			{"area":"서울"},
+			{"area":"부산"},
+			{"area":"전주"}
+		];
+		
+	//$(요소선택).each(function(매개변수1,매개변수2){})
+	//배열에 저장된 요소의 개수만큼 메서드를 반복 실행.
+	//매개변수1,매개변수2에는 배열에 저장된 요소와 인덱스 값이 배열에 오름차순으로 대입됨.
+		$(obj).each(function(i, o){
+			console.log(i + ":", o);
+		});
+		
+		console.log("==== The End 1 ====");
+
+		
+	//$.each($("요소 선택").function(매개변수1,매개변수2){})
+	//배열에 저장된 요소의 개수만큼 메서드를 반복 실행.
+	//매개변수1,매개변수2에는 배열에 저장된 요소와 인덱스 값이 배열에 오름차순으로 대입됨.
+		$.each($("#menu2 li"), function(i, o){
+			console.log(i + ":", o);
+		});
+		
+		console.log("==== The End 2 ====");    
+
+		var liColor=[
+			{"color":"red"},
+			{"color":"green"},
+			{"color":"blue"}
+		]
+	//$(요소선택).each(function(){$(this)}) == $.each($("요소 선택").function(){$(this)})
+	//배열에 저장된 요소의 개수만큼 메서드를 반복 실행.
+	//메서드를 실행할 때마다 $(this)에는 배열에 저장된 요소가 오름차순으로 대입됩니다.
+		$.each($("#menu2 li"), function(i){
+			$(this).css("color",liColor[i%3].color)
+			/* if(i==1){
+				$(this).css("color","red");
+			}
+			if(i==2){
+				$(this).css("color","yellow");
+			} */
+			console.log(i + ":", $(this));
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu1">
+		<li>내용1-1</li>
+		<li>내용1-2</li>
+		<li>내용1-3</li>
+	</ul>
+	<ul id="menu2">
+		<li>내용2-1</li>
+		<li>내용2-2</li>
+		<li>내용2-3</li>
+	</ul>
+</body>
+</html>

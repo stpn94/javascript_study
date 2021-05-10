@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 리턴</title>
+<style>
+	*{margin: 0;padding: 0;}
+	#galleryZone {text-align: center;}
+	#galleryZone input[type="image"]{margin:0 8px;}
+</style>
+<script>
+	document.write("<h3>평균점수구하기</h3>");
+	
+	//arrSubject는 2개인덱스를 가진 배열
+	var arrSubject = ["국어", "수학"];
+	//result 는 testAvg함수의 결과값
+	var result = testAvg(arrSubject);
+	
+	//testAvg(arrSubject)실행하면 testAvg(arrData)를 매개변수로 사용하는 함수testAvg	
+	function testAvg(arrData){
+		var sum = 0;    
+		// 배열에 저장된 데이터 개수(2)만큼 반복문을 실행
+		for(var i = 0; i < arrData.length; i++) {
+			//sum 변수에 점수 누적(prompt를 사용해 점수 입력)
+			sum += Number(prompt(arrData[i] + " 점수는?", "0"));
+			document.write("누적 점수"+sum+" <br>");
+		}
+		//누적점수 sum 에 배열길이를 나누고 avg를 return해준다.
+		var avg = sum / arrData.length;
+		return avg;
+	}
+
+	document.write("평균 점수는 " + result + "점 입니다");
+	
+	document.write("<h3>이미지 순서대로 불러오기</h3>");
+	
+	//매개변수에 들어갈 num=1 (초기화)
+	var num = 1;
+	//gallery(direct)  direct매개변수
+	function gallery(direct) {
+			document.write(num);
+		if(direct) {
+		//매개변수가 1이면 true
+		//num의 값이 8이면 리턴한다.아니면 num++
+			if(num == 8) return;
+			num++;
+		} else {
+		//매개변수가 0이면 false
+		//num의 값이 1이면 리턴한다.아니면 num--
+			if(num == 1) return;
+			num--;
+		}
+		//imgTag변수에 Id가 photo인 이미지를 불러옴
+		var imgTag = document.getElementById("photo");
+		//src 속성을 새 값으로 설정합니다.
+		imgTag.setAttribute("src", "images/pic_" + num + ".jpg");
+	}
+</script>
+</head>
+<body>
+	<div id="galleryZone">
+		<p>
+			<button onclick="gallery(0)">이전</button>
+			<button onclick="gallery(1)">다음</button>
+		</p>
+		<p><img src="images/pic_1.jpg" id="photo" alt=""></p>
+	</div>
+</body>
+</html>

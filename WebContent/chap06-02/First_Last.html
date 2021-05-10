@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 탐색 선택자 </title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	//전체<li> 요소 중 첫 번째 요소만 선택합니다.
+	$(function(){
+		$("#menu li:first")
+		.css({"background-color":"#ff0"});
+
+	//전체<li> 요소 중 마지막 요소만 선택합니다.
+		$("#menu li:last")
+		.css({"background-color":"#0ff"});
+	});
+	
+</script>
+</head>
+<body>
+	<h1>탐색 선택자</h1>
+	<ul id="menu">
+		<li>내용1</li>
+		<li>내용2</li>
+		<li>내용3</li>
+		<li>내용4</li>
+	</ul>
+</body>
+</html>

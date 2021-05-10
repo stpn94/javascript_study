@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>전역변수와 지역변수</title>
+<script>
+document.write("<h3>함수가 겹칠때</h3>");
+	//전역변수
+	var num = 100;
+	
+	function menu( ) {
+		
+		num += 100;
+		//지역함수alert
+		document.write(num);
+	}
+	menu();
+
+	//똑같은 menu()메서드 실행 되면서 위의 menu()메서드는 묵살된다.
+	function menu( ) {
+		document.write(num);
+	};
+	
+document.write("<h3>우선수행 함수</h3>");
+	//(~~~()) 사용하면 무조건 먼저 실행된다.
+	(function() {
+		var num = 100;
+			document.write("3"+"<br>"+num+"<br>");
+		function menu( ) {
+			num += 100;
+			alert(num);
+			document.write("3"+"<br>"+num+"<br>");
+		}
+		menu( );
+	}());
+
+	(function(){
+		var num = 100;
+			document.write("4"+"<br>"+num+"<br>");
+		function menu( ) {
+			alert(num);
+			document.write("4"+"<br>"+num+"<br>");
+		}
+	}( ));
+</script>
+</head>
+<body>
+
+</body>
+</html>
